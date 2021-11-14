@@ -1,0 +1,10 @@
+# Mac OS X Desktop Services Store
+.DS_Store
+
+# Goland
+.idea
+
+# build results
+build
+
+
