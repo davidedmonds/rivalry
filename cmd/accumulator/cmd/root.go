@@ -76,11 +76,14 @@ func NewRootCmd() *cobra.Command {
 			backfillManagerDLM := dlm.NewRedisDLM("backfill_manager", redisOpts)
 			backfillManager := backfill.NewManager(kvStore, sortedSet, set, backfillManagerDLM, ticketsManager, 1)
 
-			profileStr, _ := cmd.Flags().GetString("profile")
-			profile := new(pb.MatchProfile)
-			err = json.Unmarshal([]byte(profileStr), profile)
+			profile, _ := cmd.Flags().GetString("profile")
+			profilesStr, _ := cmd.Flags().GetString("profiles")
+			var profiles []*pb.MatchProfile
+			err = json.Unmarshal([]byte(profilesStr), &profiles)
 			if err != nil {
-				return errors.Wrap(err, "failed to unmarshal profile")
+				msg := "failed to unmarshal profiles"
+				log.Err(err).Msg(msg)
+				return errors.Wrap(err, msg)
 			}
 
 			maxTickets, _ := cmd.Flags().GetInt64("max_tickets")
@@ -100,7 +103,7 @@ func NewRootCmd() *cobra.Command {
 				wg.Wait()
 			}
 
-			accumulator := backend.NewAccumulator(ctx, profile, ticketsManager, backfillManager, matchesManager, matchmakerManager, config)
+			accumulator := backend.NewAccumulator(ctx, profile, profiles, ticketsManager, backfillManager, matchesManager, matchmakerManager, config)
 
 			err = accumulator.Run()
 			log.Err(err).Msg("accumulator finished")
@@ -121,6 +124,8 @@ func NewRootCmd() *cobra.Command {
 
 	rootCmd.Flags().String("profile", "", "")
 	rootCmd.MarkFlagRequired("profile")
+	rootCmd.Flags().String("profiles", "", "")
+	rootCmd.MarkFlagRequired("profiles")
 
 	rootCmd.Flags().String("matchmaker_target", "", "")
 	rootCmd.MarkFlagRequired("matchmaker_target")

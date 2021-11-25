@@ -74,13 +74,14 @@ func stopFrontend() {
 }
 
 func initAccumulator(s *suite.Suite, redisAddr, natsAddr string) *cobra.Command {
-	profileBytes, err := json.Marshal(profile)
+	profilesBytes, err := json.Marshal([]*pb.MatchProfile{profile})
 	require.NoError(s.T(), err)
 	accumulatorArgs := []string{
 		"--redis_addr", redisAddr,
 		"--redis_unix",
 		"--nats_addr", natsAddr,
-		"--profile", string(profileBytes),
+		"--profile", profile.Name,
+		"--profiles", string(profilesBytes),
 		"--matchmaker_target", matchmakerTarget,
 		"--max_delay", fmt.Sprint(time.Second.Milliseconds() / 4),
 	}

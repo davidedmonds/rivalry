@@ -29,6 +29,7 @@ type AccumulatorConfig struct {
 
 type accumulator struct {
 	profile             *pb.MatchProfile
+	profiles            []*pb.MatchProfile
 	ticketsManager      tickets.Manager
 	backfillManager     backfill.Manager
 	matchesManager      matches.Manager
@@ -44,17 +45,26 @@ type accumulator struct {
 }
 
 // NewAccumulator returns a new accumulator
-func NewAccumulator(ctx context.Context, profile *pb.MatchProfile, ticketsManager tickets.Manager,
-	backfillManager backfill.Manager, matchesManager matches.Manager,
-	customlogicManager customlogic.MatchmakerManager, config *AccumulatorConfig) Accumulator {
+func NewAccumulator(ctx context.Context, profileName string, profiles []*pb.MatchProfile, ticketsManager tickets.Manager,
+	backfillManager backfill.Manager, matchesManager matches.Manager, customlogicManager customlogic.MatchmakerManager,
+	config *AccumulatorConfig) Accumulator {
+	var profile *pb.MatchProfile
+	for _, p := range profiles {
+		if p.Name == profileName {
+			profile = p
+			break
+		}
+	}
+
 	a := &accumulator{
 		ctx:                ctx,
 		profile:            profile,
+		profiles:           profiles,
 		ticketsManager:     ticketsManager,
 		backfillManager:    backfillManager,
 		matchesManager:     matchesManager,
 		customlogicManager: customlogicManager,
-		filterManager:      filter.NewManager([]*pb.MatchProfile{profile}),
+		filterManager:      filter.NewManager(profiles),
 		config:             config,
 		ticketsSeen:        mapset.NewSet(),
 		poolTickets:        make(map[string]*pb.MakeMatchesRequest_PoolTickets),
