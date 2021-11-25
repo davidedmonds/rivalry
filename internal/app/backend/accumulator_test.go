@@ -20,7 +20,8 @@ import (
 	"om-stream/pkg/pb"
 )
 
-var profile = &pb.MatchProfile{Name: "everybody", Pools: []*pb.Pool{{Name: "pool_everybody"}}}
+var profileName = "everybody"
+var profiles = []*pb.MatchProfile{{Name: profileName, Pools: []*pb.Pool{{Name: "pool_everybody"}}}}
 
 type AccumulatorTestSuite struct {
 	suite.Suite
@@ -40,7 +41,7 @@ func (s *AccumulatorTestSuite) SetupTest() {
 	s.ticketsManager = ticketsMock.NewMockManager(gomock.NewController(s.T()))
 	s.backfillManager = backfill.NewMockManager(gomock.NewController(s.T()))
 	s.matchesManager = matches.NewMockManager(gomock.NewController(s.T()))
-	s.filterManager = filter.NewManager([]*pb.MatchProfile{profile})
+	s.filterManager = filter.NewManager(profiles)
 	s.customlogicManager = customlogic.NewMockMatchmakerManager(gomock.NewController(s.T()))
 	s.config = &backend.AccumulatorConfig{
 		MaxTickets:  2,
@@ -48,14 +49,14 @@ func (s *AccumulatorTestSuite) SetupTest() {
 		MaxBackfill: 1,
 	}
 	s.accumulator = backend.NewAccumulator(
-		s.ctx, profile, s.ticketsManager, s.backfillManager, s.matchesManager, s.customlogicManager, s.config)
+		s.ctx, profileName, profiles, s.ticketsManager, s.backfillManager, s.matchesManager, s.customlogicManager, s.config)
 }
 
 func (s *AccumulatorTestSuite) TestAccumulatorMatchMadeMaxDelay() {
 	t := &pb.Ticket{Id: xid.New().String()}
 	profileName, pool, err := s.filterManager.ProfileMembershipTest(t)
 	require.NoError(s.T(), err)
-	s.ticketsManager.EXPECT().StreamTickets(s.ctx, profile.Name, gomock.Any()).Do(
+	s.ticketsManager.EXPECT().StreamTickets(s.ctx, profileName, gomock.Any()).Do(
 		func(ctx context.Context, profile string, f func(ctx context.Context, st *pb.StreamTicket, t *pb.Ticket)) {
 			f(ctx, &pb.StreamTicket{Profile: profileName, Pool: pool, TicketId: t.Id}, t)
 		})
@@ -82,7 +83,7 @@ func (s *AccumulatorTestSuite) TestAccumulatorMatchMadeMaxTickets() {
 	t2 := &pb.Ticket{Id: xid.New().String()}
 	profileName, pool, err := s.filterManager.ProfileMembershipTest(t)
 	require.NoError(s.T(), err)
-	s.ticketsManager.EXPECT().StreamTickets(s.ctx, profile.Name, gomock.Any()).Do(
+	s.ticketsManager.EXPECT().StreamTickets(s.ctx, profileName, gomock.Any()).Do(
 		func(ctx context.Context, profile string, f func(ctx context.Context, st *pb.StreamTicket, t *pb.Ticket)) {
 			f(ctx, &pb.StreamTicket{Profile: profileName, Pool: pool, TicketId: t.Id}, t)
 			// send the same ticket again to test deduplication
@@ -114,7 +115,7 @@ func (s *AccumulatorTestSuite) TestAccumulatorRequeueAllTickets() {
 	t2 := &pb.Ticket{Id: xid.New().String()}
 	profileName, pool, err := s.filterManager.ProfileMembershipTest(t)
 	require.NoError(s.T(), err)
-	s.ticketsManager.EXPECT().StreamTickets(s.ctx, profile.Name, gomock.Any()).Do(
+	s.ticketsManager.EXPECT().StreamTickets(s.ctx, profileName, gomock.Any()).Do(
 		func(ctx context.Context, profile string, f func(ctx context.Context, st *pb.StreamTicket, t *pb.Ticket)) {
 			f(ctx, &pb.StreamTicket{Profile: profileName, Pool: pool, TicketId: t.Id}, t)
 			f(ctx, &pb.StreamTicket{Profile: profileName, Pool: pool, TicketId: t2.Id}, t2)
@@ -135,7 +136,7 @@ func (s *AccumulatorTestSuite) TestAccumulatorNotAllTicketsMatched() {
 	profileName, pool, err := s.filterManager.ProfileMembershipTest(t)
 	require.NoError(s.T(), err)
 	// we stream 2 tickets
-	s.ticketsManager.EXPECT().StreamTickets(s.ctx, profile.Name, gomock.Any()).Do(
+	s.ticketsManager.EXPECT().StreamTickets(s.ctx, profileName, gomock.Any()).Do(
 		func(ctx context.Context, profile string, f func(ctx context.Context, st *pb.StreamTicket, t *pb.Ticket)) {
 			f(ctx, &pb.StreamTicket{Profile: profileName, Pool: pool, TicketId: t.Id}, t)
 			f(ctx, &pb.StreamTicket{Profile: profileName, Pool: pool, TicketId: t2.Id}, t2)
