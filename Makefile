@@ -8,7 +8,7 @@ GOLANG_PROTOS = pkg/pb/frontend.pb.go pkg/pb/frontend.pb.gw.go api/frontend.swag
 	pkg/pb/messages.pb.go pkg/pb/internal.pb.go pkg/pb/match_logic.pb.go
 
 # the version of protoc used to build protobuf
-PROTOC_VERSION = 3.13.0
+PROTOC_VERSION = 3.19.1
 
 # location used for build output
 BUILD_DIR = $(REPOSITORY_ROOT)/build
@@ -83,15 +83,15 @@ pkg/pb/%.pb.gw.go: api/%.proto build/toolchain/bin/protoc$(EXE_EXTENSION) third_
 		-I $(REPOSITORY_ROOT) \
 		-I $(PROTOC_INCLUDES) \
 		--grpc-gateway_out=logtostderr=true:$(REPOSITORY_ROOT)/build/prototmp
-	mv $(REPOSITORY_ROOT)/build/prototmp/om-kafka/$@ $@
+	mv $(REPOSITORY_ROOT)/build/prototmp/om-stream/$@ $@
 
 # build grpc boilerplate
 pkg/pb/%.pb.go: api/%.proto build/toolchain/bin/protoc$(EXE_EXTENSION) third_party
 	mkdir -p $(REPOSITORY_ROOT)/build/prototmp $(REPOSITORY_ROOT)/pkg/pb
-	PATH=$(PATH):$(TOOLCHAIN_BIN) $(PROTOC) $< \
+	PATH=$(TOOLCHAIN_BIN) $(PROTOC) $< \
 		-I $(REPOSITORY_ROOT) -I $(PROTOC_INCLUDES) \
 		--go_out=plugins=grpc:$(REPOSITORY_ROOT)/build/prototmp
-	mv $(REPOSITORY_ROOT)/build/prototmp/om-kafka/$@ $@
+	mv $(REPOSITORY_ROOT)/build/prototmp/om-stream/$@ $@
 
 third_party: third_party/google/api third_party/protoc-gen-openapiv2/options
 

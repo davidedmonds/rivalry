@@ -5,19 +5,19 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/amg84/om-stream/internal/backoff"
+	kvMock "github.com/amg84/om-stream/internal/db/kv/mock"
+	pubsubMock "github.com/amg84/om-stream/internal/db/pubsub/mock"
+	streamMock "github.com/amg84/om-stream/internal/db/stream/mock"
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/internal/managers/tickets"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/proto"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	"om-stream/internal/backoff"
-	kvMock "om-stream/internal/db/kv/mock"
-	pubsubMock "om-stream/internal/db/pubsub/mock"
-	streamMock "om-stream/internal/db/stream/mock"
-	"om-stream/internal/managers/filter"
-	"om-stream/internal/managers/tickets"
-	"om-stream/pkg/pb"
 )
 
 var (

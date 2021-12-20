@@ -6,11 +6,11 @@ import (
 	"time"
 
 	"github.com/alicebob/miniredis/v2"
+	"github.com/amg84/om-stream/internal/db/pubsub"
 	"github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	"om-stream/internal/db/pubsub"
 )
 
 type RedisTestSuite struct {

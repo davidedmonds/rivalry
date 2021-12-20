@@ -6,6 +6,9 @@ import (
 	"io"
 	"testing"
 
+	"github.com/amg84/om-stream/internal/managers/customlogic"
+	"github.com/amg84/om-stream/pkg/pb"
+	mock_pb "github.com/amg84/om-stream/pkg/pb/mock"
 	"github.com/golang/mock/gomock"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
@@ -13,9 +16,6 @@ import (
 	"github.com/stretchr/testify/suite"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"om-stream/internal/managers/customlogic"
-	"om-stream/pkg/pb"
-	mock_pb "om-stream/pkg/pb/mock"
 )
 
 var (

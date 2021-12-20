@@ -6,15 +6,15 @@ import (
 	"testing"
 	"time"
 
+	"github.com/amg84/om-stream/internal/app/backend"
+	"github.com/amg84/om-stream/internal/backoff"
+	customlogic "github.com/amg84/om-stream/internal/managers/customlogic/mock"
+	matches "github.com/amg84/om-stream/internal/managers/matches/mock"
+	ticketsMock "github.com/amg84/om-stream/internal/managers/tickets/mock"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/mock/gomock"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/suite"
-	"om-stream/internal/app/backend"
-	"om-stream/internal/backoff"
-	customlogic "om-stream/internal/managers/customlogic/mock"
-	matches "om-stream/internal/managers/matches/mock"
-	ticketsMock "om-stream/internal/managers/tickets/mock"
-	"om-stream/pkg/pb"
 )
 
 type DispenserTestSuite struct {

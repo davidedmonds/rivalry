@@ -3,13 +3,13 @@ package service_test
 import (
 	"testing"
 
+	"github.com/amg84/om-stream/examples/matchmaker/service"
+	"github.com/amg84/om-stream/pkg/pb"
+	mock_pb "github.com/amg84/om-stream/pkg/pb/mock"
 	"github.com/golang/mock/gomock"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
-	"om-stream/examples/matchmaker/service"
-	"om-stream/pkg/pb"
-	mock_pb "om-stream/pkg/pb/mock"
 )
 
 var (

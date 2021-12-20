@@ -7,16 +7,16 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/amg84/om-stream/internal/db/kv"
+	"github.com/amg84/om-stream/internal/dlm"
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/internal/managers/tickets"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
 	"github.com/rs/xid"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/protobuf/types/known/timestamppb"
-	"om-stream/internal/db/kv"
-	"om-stream/internal/dlm"
-	"om-stream/internal/managers/filter"
-	"om-stream/internal/managers/tickets"
-	"om-stream/pkg/pb"
 )
 
 const (

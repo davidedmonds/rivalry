@@ -6,18 +6,18 @@ import (
 	"context"
 	"sync"
 
+	"github.com/amg84/om-stream/internal/backoff"
+	"github.com/amg84/om-stream/internal/db/kv"
+	"github.com/amg84/om-stream/internal/db/pubsub"
+	"github.com/amg84/om-stream/internal/db/stream"
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/pkg/pb"
 	mapset "github.com/deckarep/golang-set"
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
 	"github.com/rs/xid"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/protobuf/types/known/timestamppb"
-	"om-stream/internal/backoff"
-	"om-stream/internal/db/kv"
-	"om-stream/internal/db/pubsub"
-	"om-stream/internal/db/stream"
-	"om-stream/internal/managers/filter"
-	"om-stream/pkg/pb"
 )
 
 const (

@@ -6,9 +6,9 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
-	"om-stream/pkg/pb"
 )
 
 // FakeServerAssignmentService conforms to the AssignmentServiceServer interface

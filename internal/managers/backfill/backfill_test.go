@@ -5,18 +5,18 @@ import (
 	"fmt"
 	"testing"
 
+	kvMock "github.com/amg84/om-stream/internal/db/kv/mock"
+	dlmMock "github.com/amg84/om-stream/internal/dlm/mock"
+	"github.com/amg84/om-stream/internal/managers/backfill"
+	"github.com/amg84/om-stream/internal/managers/filter"
+	ticketsMock "github.com/amg84/om-stream/internal/managers/tickets/mock"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/proto"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	kvMock "om-stream/internal/db/kv/mock"
-	dlmMock "om-stream/internal/dlm/mock"
-	"om-stream/internal/managers/backfill"
-	"om-stream/internal/managers/filter"
-	ticketsMock "om-stream/internal/managers/tickets/mock"
-	"om-stream/pkg/pb"
 )
 
 var (

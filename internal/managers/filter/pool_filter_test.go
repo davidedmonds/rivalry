@@ -20,14 +20,14 @@ package filter_test
 import (
 	"testing"
 
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/internal/managers/filter/testcases"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"om-stream/internal/managers/filter"
-	"om-stream/internal/managers/filter/testcases"
-	"om-stream/pkg/pb"
 )
 
 func TestMeetsCriteria(t *testing.T) {

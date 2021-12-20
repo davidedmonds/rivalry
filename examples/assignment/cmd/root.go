@@ -7,12 +7,12 @@ import (
 	"os"
 	"sync"
 
+	"github.com/amg84/om-stream/examples/assignment/service"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	"om-stream/examples/assignment/service"
-	"om-stream/pkg/pb"
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"

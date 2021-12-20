@@ -5,14 +5,14 @@ import (
 	"sync"
 	"time"
 
+	"github.com/amg84/om-stream/internal/managers/backfill"
+	"github.com/amg84/om-stream/internal/managers/customlogic"
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/internal/managers/matches"
+	"github.com/amg84/om-stream/internal/managers/tickets"
+	"github.com/amg84/om-stream/pkg/pb"
 	mapset "github.com/deckarep/golang-set"
 	"github.com/rs/zerolog/log"
-	"om-stream/internal/managers/backfill"
-	"om-stream/internal/managers/customlogic"
-	"om-stream/internal/managers/filter"
-	"om-stream/internal/managers/matches"
-	"om-stream/internal/managers/tickets"
-	"om-stream/pkg/pb"
 )
 
 // Accumulator defines the interface for the accumulator backend

@@ -5,14 +5,14 @@ package matches
 import (
 	"context"
 
+	"github.com/amg84/om-stream/internal/backoff"
+	"github.com/amg84/om-stream/internal/db/kv"
+	"github.com/amg84/om-stream/internal/db/stream"
+	"github.com/amg84/om-stream/internal/managers/tickets"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/protobuf/proto"
 	"github.com/rs/xid"
 	"github.com/rs/zerolog/log"
-	"om-stream/internal/backoff"
-	"om-stream/internal/db/kv"
-	"om-stream/internal/db/stream"
-	"om-stream/internal/managers/tickets"
-	"om-stream/pkg/pb"
 )
 
 const (

@@ -6,10 +6,10 @@ import (
 	"context"
 	"io"
 
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"om-stream/pkg/pb"
 )
 
 // FrontendManager provides the interface for calling custom frontend logic

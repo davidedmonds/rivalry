@@ -1,6 +1,6 @@
 syntax = "proto3";
 package openmatch;
-option go_package = "om-kafka/pkg/pb";
+option go_package = "github.com/amg84/om-stream/pkg/pb";
 option csharp_namespace = "OpenMatch";
 
 import "api/messages.proto";

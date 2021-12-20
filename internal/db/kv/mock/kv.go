@@ -6,7 +6,7 @@ package mock
 
 import (
 	context "context"
-	kv "om-stream/internal/db/kv"
+	kv "github.com/amg84/om-stream/internal/db/kv"
 	reflect "reflect"
 	time "time"
 

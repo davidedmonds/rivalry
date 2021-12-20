@@ -5,6 +5,14 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/amg84/om-stream/internal/app/frontend"
+	backfill "github.com/amg84/om-stream/internal/managers/backfill/mock"
+	customlogic "github.com/amg84/om-stream/internal/managers/customlogic/mock"
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/internal/managers/tickets"
+	ticketsMock "github.com/amg84/om-stream/internal/managers/tickets/mock"
+	"github.com/amg84/om-stream/pkg/pb"
+	mock_pb "github.com/amg84/om-stream/pkg/pb/mock"
 	"github.com/golang/mock/gomock"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
@@ -13,14 +21,6 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/timestamppb"
-	"om-stream/internal/app/frontend"
-	backfill "om-stream/internal/managers/backfill/mock"
-	customlogic "om-stream/internal/managers/customlogic/mock"
-	"om-stream/internal/managers/filter"
-	"om-stream/internal/managers/tickets"
-	ticketsMock "om-stream/internal/managers/tickets/mock"
-	"om-stream/pkg/pb"
-	mock_pb "om-stream/pkg/pb/mock"
 )
 
 var (

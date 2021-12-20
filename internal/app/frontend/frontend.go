@@ -4,17 +4,17 @@ import (
 	"context"
 	"time"
 
+	"github.com/amg84/om-stream/internal/backoff"
+	"github.com/amg84/om-stream/internal/managers/backfill"
+	"github.com/amg84/om-stream/internal/managers/customlogic"
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/internal/managers/tickets"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
 	"github.com/rs/xid"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"om-stream/internal/backoff"
-	"om-stream/internal/managers/backfill"
-	"om-stream/internal/managers/customlogic"
-	"om-stream/internal/managers/filter"
-	"om-stream/internal/managers/tickets"
-	"om-stream/pkg/pb"
 )
 
 // Service implements the FrontendService APIs

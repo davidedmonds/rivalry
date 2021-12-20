@@ -3,11 +3,11 @@ package filter_test
 import (
 	"testing"
 
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
-	"om-stream/internal/managers/filter"
-	"om-stream/pkg/pb"
 )
 
 var profile = &pb.MatchProfile{Name: "everybody", Pools: []*pb.Pool{

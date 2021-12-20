@@ -4,11 +4,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/amg84/om-stream/internal/dlm"
 	goredislib "github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 	"github.com/stvp/tempredis"
-	"om-stream/internal/dlm"
 )
 
 type DLMTestSuite struct {

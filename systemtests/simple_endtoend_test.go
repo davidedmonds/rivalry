@@ -6,6 +6,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/nats-io/nats-server/v2/server"
 	"github.com/nats-io/nats.go"
 	"github.com/rs/zerolog/log"
@@ -15,7 +16,6 @@ import (
 	"github.com/stretchr/testify/suite"
 	"github.com/stvp/tempredis"
 	"google.golang.org/grpc"
-	"om-stream/pkg/pb"
 )
 
 type SimpleEndToEndTestSuite struct {

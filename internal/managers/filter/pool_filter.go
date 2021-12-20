@@ -20,12 +20,12 @@ package filter
 import (
 	"time"
 
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"om-stream/pkg/pb"
 )
 
 var emptySearchFields = &pb.SearchFields{}

@@ -4,15 +4,15 @@ import (
 	"context"
 	"testing"
 
+	"github.com/amg84/om-stream/examples/assignment/service"
+	"github.com/amg84/om-stream/pkg/pb"
+	mock_pb "github.com/amg84/om-stream/pkg/pb/mock"
 	"github.com/golang/mock/gomock"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 	"google.golang.org/grpc"
-	"om-stream/examples/assignment/service"
-	"om-stream/pkg/pb"
-	mock_pb "om-stream/pkg/pb/mock"
 )
 
 type FakeAssignmentServiceTestSuite struct {

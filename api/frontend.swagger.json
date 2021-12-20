@@ -451,6 +451,13 @@
           "type": "string",
           "format": "int64",
           "description": "Generation gets incremented on GameServers update operations.\nPrevents the MMF from overriding a newer version from the game server.\nDo NOT read or write to this field, it is for internal tracking, and changing the value will cause bugs."
+        },
+        "tickets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/openmatchTicket"
+          },
+          "description": "Tickets belonging to this backfill."
         }
       },
       "description": "Represents a backfill entity which is used to fill partially full matches.\n\nBETA FEATURE WARNING:  This call and the associated Request and Response\nmessages are not finalized and still subject to possible change or removal."

@@ -20,9 +20,9 @@ import (
 	"math"
 	"time"
 
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/golang/protobuf/ptypes"
 	tspb "github.com/golang/protobuf/ptypes/timestamp"
-	"om-stream/pkg/pb"
 )
 
 // TestCase defines a single filtering test case to run.

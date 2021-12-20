@@ -6,8 +6,8 @@ package mock
 
 import (
 	context "context"
-	filter "om-stream/internal/managers/filter"
-	pb "om-stream/pkg/pb"
+	filter "github.com/amg84/om-stream/internal/managers/filter"
+	pb "github.com/amg84/om-stream/pkg/pb"
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"

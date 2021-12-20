@@ -3,12 +3,12 @@ package backend
 import (
 	"context"
 
+	"github.com/amg84/om-stream/internal/backoff"
+	"github.com/amg84/om-stream/internal/managers/customlogic"
+	"github.com/amg84/om-stream/internal/managers/matches"
+	"github.com/amg84/om-stream/internal/managers/tickets"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/rs/zerolog/log"
-	"om-stream/internal/backoff"
-	"om-stream/internal/managers/customlogic"
-	"om-stream/internal/managers/matches"
-	"om-stream/internal/managers/tickets"
-	"om-stream/pkg/pb"
 )
 
 // Dispenser defines the interface for the dispenser backend

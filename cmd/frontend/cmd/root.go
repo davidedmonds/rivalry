@@ -7,6 +7,16 @@ import (
 	"os"
 	"sync"
 
+	"github.com/amg84/om-stream/internal/app/frontend"
+	"github.com/amg84/om-stream/internal/db/kv"
+	"github.com/amg84/om-stream/internal/db/pubsub"
+	"github.com/amg84/om-stream/internal/db/stream"
+	"github.com/amg84/om-stream/internal/dlm"
+	"github.com/amg84/om-stream/internal/managers/backfill"
+	"github.com/amg84/om-stream/internal/managers/customlogic"
+	"github.com/amg84/om-stream/internal/managers/filter"
+	"github.com/amg84/om-stream/internal/managers/tickets"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/go-redis/redis/v8"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pkg/errors"
@@ -15,16 +25,6 @@ import (
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	"om-stream/internal/app/frontend"
-	"om-stream/internal/db/kv"
-	"om-stream/internal/db/pubsub"
-	"om-stream/internal/db/stream"
-	"om-stream/internal/dlm"
-	"om-stream/internal/managers/backfill"
-	"om-stream/internal/managers/customlogic"
-	"om-stream/internal/managers/filter"
-	"om-stream/internal/managers/tickets"
-	"om-stream/pkg/pb"
 )
 
 var (

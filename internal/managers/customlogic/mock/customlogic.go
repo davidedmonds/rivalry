@@ -6,7 +6,7 @@ package mock
 
 import (
 	context "context"
-	pb "om-stream/pkg/pb"
+	pb "github.com/amg84/om-stream/pkg/pb"
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"

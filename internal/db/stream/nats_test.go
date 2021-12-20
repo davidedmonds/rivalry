@@ -4,18 +4,18 @@ import (
 	"sync"
 	"testing"
 
+	"github.com/amg84/om-stream/internal/db/stream"
 	"github.com/nats-io/nats-server/v2/server"
 	"github.com/nats-io/nats.go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	stream2 "om-stream/internal/db/stream"
 )
 
 type NATSTestSuite struct {
 	suite.Suite
 	server *server.Server
-	cli    stream2.Client
+	cli    stream.Client
 }
 
 func (suite *NATSTestSuite) SetupTest() {
@@ -27,7 +27,7 @@ func (suite *NATSTestSuite) SetupTest() {
 	require.NoError(suite.T(), err)
 	err = server.Run(suite.server)
 	require.NoError(suite.T(), err)
-	suite.cli = stream2.NewNATS(nats.DefaultURL, "group")
+	suite.cli = stream.NewNATS(nats.DefaultURL, "group")
 }
 
 func (suite *NATSTestSuite) TearDownTest() {

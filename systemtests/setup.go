@@ -12,16 +12,16 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stvp/tempredis"
 
+	accumulatorCmd "github.com/amg84/om-stream/cmd/accumulator/cmd"
+	dispenserCmd "github.com/amg84/om-stream/cmd/dispenser/cmd"
+	frontendCmd "github.com/amg84/om-stream/cmd/frontend/cmd"
+	assignmentCmd "github.com/amg84/om-stream/examples/assignment/cmd"
+	matchmakerCmd "github.com/amg84/om-stream/examples/matchmaker/cmd"
+	"github.com/amg84/om-stream/pkg/pb"
 	"github.com/nats-io/nats.go"
 	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	accumulatorCmd "om-stream/cmd/accumulator/cmd"
-	dispenserCmd "om-stream/cmd/dispenser/cmd"
-	frontendCmd "om-stream/cmd/frontend/cmd"
-	assignmentCmd "om-stream/examples/assignment/cmd"
-	matchmakerCmd "om-stream/examples/matchmaker/cmd"
-	"om-stream/pkg/pb"
 )
 
 var (
