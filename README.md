@@ -18,3 +18,19 @@ Other beneficial design changes:
 
 Below is a sequence diagram that gives an overview of how om-stream works
 ![uml](./docs/sequence.png)
+
+Remaining Work:
+1. Tidy away data once matches are no longer needed
+2. Add configure for Kubernetes deployment
+   1. Helm Chart
+   2. Create an Operator and Match Profile CRD that ensures we have an accumulator deployment for each Match Profile
+3. Load testing
+
+Improvement Ideas:
+1. Split the accumulator up into 2 services, moving the work of makeMatches into another service that would consume
+   batches of Tickets and Backfill from the accumulator and attempt to create Matches from them.
+2. If we are worried about tickets getting lost in the streams we could update an index, with the current time, 
+   each time a service handles a Ticket and create a worker to requeue tickets that have an index over a threshold. 
+3. Match Profiles have a very limited ability to filter, this could be expanded, perhaps to be more like  a
+   [Boolean Query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html)
+   in Elasticsearch.
