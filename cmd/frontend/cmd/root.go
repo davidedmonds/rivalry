@@ -33,7 +33,7 @@ var (
 	Stop func()
 )
 
-//NewRootCmd instantiates the command line root command
+// NewRootCmd instantiates the command line root command
 func NewRootCmd() *cobra.Command {
 	var rootCmd = &cobra.Command{
 		Use:   "frontend",

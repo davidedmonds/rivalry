@@ -83,7 +83,7 @@ pkg/pb/%.pb.gw.go: api/%.proto build/toolchain/bin/protoc$(EXE_EXTENSION) third_
 		-I $(REPOSITORY_ROOT) \
 		-I $(PROTOC_INCLUDES) \
 		--grpc-gateway_out=logtostderr=true:$(REPOSITORY_ROOT)/build/prototmp
-	mv $(REPOSITORY_ROOT)/build/prototmp/om-stream/$@ $@
+	mv $(REPOSITORY_ROOT)/build/prototmp/github.com/amg84/om-stream/$@ $@
 
 # build grpc boilerplate
 pkg/pb/%.pb.go: api/%.proto build/toolchain/bin/protoc$(EXE_EXTENSION) third_party
@@ -91,7 +91,7 @@ pkg/pb/%.pb.go: api/%.proto build/toolchain/bin/protoc$(EXE_EXTENSION) third_par
 	PATH=$(TOOLCHAIN_BIN) $(PROTOC) $< \
 		-I $(REPOSITORY_ROOT) -I $(PROTOC_INCLUDES) \
 		--go_out=plugins=grpc:$(REPOSITORY_ROOT)/build/prototmp
-	mv $(REPOSITORY_ROOT)/build/prototmp/om-stream/$@ $@
+	mv $(REPOSITORY_ROOT)/build/prototmp/github.com/amg84/om-stream/$@ $@
 
 third_party: third_party/google/api third_party/protoc-gen-openapiv2/options
 

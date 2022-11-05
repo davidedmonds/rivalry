@@ -7,4 +7,5 @@
 # build results
 build
 
-
+# tempredis database files
+*.rdb

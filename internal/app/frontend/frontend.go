@@ -44,7 +44,7 @@ func (s *Service) Close() {
 // A ticket is considered as ready for matchmaking once it is created.
 //   - If a TicketId exists in a Ticket request, an auto-generated TicketId will override this field.
 //   - The ticket is tested against Match Profiles for membership and is added to a stream for the relevant profile,
-//  	if no profile is matched an error is returned.
+//     if no profile is matched an error is returned.
 func (s *Service) CreateTicket(ctx context.Context, req *pb.CreateTicketRequest) (*pb.Ticket, error) {
 	// Perform input validation.
 	if req.Ticket == nil {

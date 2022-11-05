@@ -34,3 +34,6 @@ Improvement Ideas:
 3. Match Profiles have a very limited ability to filter, this could be expanded, perhaps to be more like  a
    [Boolean Query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html)
    in Elasticsearch.
+
+Chores:
+1. Use buf to generate and lint proto files
