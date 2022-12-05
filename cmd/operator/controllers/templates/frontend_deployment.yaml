@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: om-stream-frontend
+  labels:
+    app: om-stream-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: om-stream-frontend
+  template:
+    metadata:
+      labels:
+        app: om-stream-frontend
+    spec:
+      containers:
+        - name: om-stream-frontend
+          image: frontend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+          - name: grpc
+            containerPort: 50051
+            protocol: TCP

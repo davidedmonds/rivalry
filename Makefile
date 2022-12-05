@@ -34,6 +34,9 @@ GOOGLE_APIS_VERSION = aba342359b6743353195ca53f944fe71e6fb6cd4
 # the golang command (wrapped to turn on go module support)
 GO = GO111MODULE=on go
 
+REGISTRY ?=
+TAG ?= latest
+
 # Platform specific requirements
 ifeq ($(OS),Windows_NT)
 	EXE_EXTENSION = .exe
@@ -141,3 +144,29 @@ go-lint:
 
 coverage: go-test
 	$(GO) tool cover -html=$(BUILD_DIR)/coverage/coverage.out
+
+build-frontend:
+	docker build -f Dockerfile.cmd --build-arg=COMMAND=frontend -t $(REGISTRY)om-stream-frontend:$(TAG) .
+
+build-accumulator:
+	docker build -f Dockerfile.cmd --build-arg=COMMAND=accumulator -t $(REGISTRY)om-stream-accumulator:$(TAG) .
+
+build-dispenser:
+	docker build -f Dockerfile.cmd --build-arg=COMMAND=dispenser -t $(REGISTRY)om-stream-dispenser:$(TAG) .
+
+build-matchmaker:
+	docker build -f Dockerfile.cmd --build-arg=LOCATION=examples --build-arg=COMMAND=matchmaker \
+		-t $(REGISTRY)om-stream-matchmaker:$(TAG) .
+
+build-assignment:
+	docker build -f Dockerfile.cmd --build-arg=LOCATION=examples --build-arg=COMMAND=assignment \
+		-t $(REGISTRY)om-stream-assignment:$(TAG) .
+
+build: build-frontend build-accumulator build-dispenser build-matchmaker build-assignment
+
+build-k6: $(TOOLCHAIN_BIN)
+	go install go.k6.io/xk6/cmd/xk6@latest
+	xk6 build --with github.com/amg84/om-stream/xk6/xk6-frontend=$(REPOSITORY_ROOT)/xk6/xk6-frontend --output $(TOOLCHAIN_BIN)/k6
+
+run-k6: build-k6
+	$(TOOLCHAIN_BIN)/k6 run xk6/test.js

@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: om-stream-frontend
+  labels:
+    app: om-stream-frontend
+spec:
+  selector:
+    app: om-stream-frontend
+  type: ClusterIP
+  ports:
+    - name: grpc
+      protocol: TCP
+      port: 50051

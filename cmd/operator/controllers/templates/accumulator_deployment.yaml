@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: om-stream-accumulator
+  labels:
+    app: om-stream-accumulator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: om-stream-accumulator
+  template:
+    metadata:
+      labels:
+        app: om-stream-accumulator
+    spec:
+      containers:
+        - name: om-stream-accumulator
+          image: accumulator:latest
+          imagePullPolicy: IfNotPresent

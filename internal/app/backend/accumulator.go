@@ -156,6 +156,7 @@ func (a *accumulator) makeMatches(ctx context.Context, poolTickets map[string]*p
 			match.Backfill.Tickets = match.Tickets
 			err := a.backfillManager.MakeMatchWithBackfill(ctx, match.Backfill, ticketsIDs, a.filterManager)
 			if err != nil {
+				log.Err(err).Str("backfill", match.Backfill.Id).Msg("make matches with backfill failed")
 				a.ticketsManager.RequeueTickets(ctx, match.Tickets, a.filterManager)
 				return
 			}
@@ -163,6 +164,7 @@ func (a *accumulator) makeMatches(ctx context.Context, poolTickets map[string]*p
 
 		successful, err := a.matchesManager.CreateMatch(ctx, match)
 		if err != nil || !successful {
+			log.Err(err).Msg("failed to create match")
 			a.ticketsManager.RequeueTickets(ctx, match.Tickets, a.filterManager)
 			return
 		}
@@ -185,6 +187,7 @@ func (a *accumulator) makeMatches(ctx context.Context, poolTickets map[string]*p
 				}
 			}
 		}
+		log.Trace().Int("number_of_tickets", len(requeue)).Msg("re-queuing unmatched tickets")
 		a.ticketsManager.RequeueTickets(ctx, requeue, a.filterManager)
 	}
 }

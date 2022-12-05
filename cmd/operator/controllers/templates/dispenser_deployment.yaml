@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: om-stream-dispenser
+  labels:
+    app: om-stream-dispenser
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: om-stream-dispenser
+  template:
+    metadata:
+      labels:
+        app: om-stream-dispenser
+    spec:
+      containers:
+        - name: om-stream-dispenser
+          image: dispenser:latest
+          imagePullPolicy: IfNotPresent

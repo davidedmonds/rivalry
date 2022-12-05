@@ -239,6 +239,14 @@ func (m *manager) ReleaseTicketsFromMatch(ctx context.Context, match *pb.Match) 
 	return m.kvStore.Del(ctx, collectionTicketAssignments, ts...)
 }
 
+func idsFromTickets(tickets []*pb.Ticket) []string {
+	ids := make([]string, len(tickets))
+	for i, v := range tickets {
+		ids[i] = v.Id
+	}
+	return ids
+}
+
 // AddAssignmentToTickets updates a list of tickets adding an assignment to each
 func (m *manager) AddAssignmentToTickets(ctx context.Context, assignment *pb.Assignment, tickets []*pb.Ticket) error {
 	if len(tickets) == 0 {
@@ -259,6 +267,9 @@ func (m *manager) AddAssignmentToTickets(ctx context.Context, assignment *pb.Ass
 		return err
 	}
 
+	ticketIDs := idsFromTickets(tickets)
+	log.Debug().Strs("tickets", ticketIDs).Msg("successfully added assignment to tickets")
+
 	var wg sync.WaitGroup
 	for _, t := range tickets {
 		wg.Add(1)
@@ -273,6 +284,7 @@ func (m *manager) AddAssignmentToTickets(ctx context.Context, assignment *pb.Ass
 		}(t.Id)
 	}
 	wg.Wait()
+	log.Debug().Strs("tickets", ticketIDs).Msg("successfully published ticket assignments")
 	return nil
 }
 
