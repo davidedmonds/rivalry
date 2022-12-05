@@ -1,4 +1,4 @@
-apiVersion: om-stream.om-stream/v1alpha1
+apiVersion: rivalry.rivalry/v1alpha1
 kind: Profile
 metadata:
   name: profile-sample

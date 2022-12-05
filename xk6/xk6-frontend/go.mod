@@ -1,9 +1,9 @@
-module github.com/amg84/om-stream/xk6/xk6-frontend
+module github.com/rivalry-matchmaker/rivalry/xk6/xk6-frontend
 
 go 1.19
 
 require (
-	github.com/amg84/om-stream v0.0.0-20221105134654-49814a3a66e2
+	github.com/rivalry-matchmaker/rivalry v0.0.0-20221105134654-49814a3a66e2
 	go.k6.io/k6 v0.41.0
 	google.golang.org/grpc v1.51.0
 )

@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/amg84/om-stream/internal/dlm"
+	"github.com/rivalry-matchmaker/rivalry/internal/dlm"
 	goredislib "github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"

@@ -6,7 +6,7 @@ import (
 	"context"
 	"io"
 
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

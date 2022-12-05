@@ -4,7 +4,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/amg84/om-stream/internal/db/stream"
+	"github.com/rivalry-matchmaker/rivalry/internal/db/stream"
 	"github.com/nats-io/nats-server/v2/server"
 	"github.com/nats-io/nats.go"
 	"github.com/stretchr/testify/assert"

@@ -1,5 +1,5 @@
-github.com/amg84/om-stream v0.0.0-20221105134654-49814a3a66e2 h1:pJiVdHS0B/nYF1aKUdJd5V8RodXFpVc1GP7PsNYRXSY=
-github.com/amg84/om-stream v0.0.0-20221105134654-49814a3a66e2/go.mod h1:hhkbvCQO6L3/h/fCxPusVjHy4MeyNQC1L9eVxW0nyrQ=
+github.com/rivalry-matchmaker/rivalry v0.0.0-20221105134654-49814a3a66e2 h1:pJiVdHS0B/nYF1aKUdJd5V8RodXFpVc1GP7PsNYRXSY=
+github.com/rivalry-matchmaker/rivalry v0.0.0-20221105134654-49814a3a66e2/go.mod h1:hhkbvCQO6L3/h/fCxPusVjHy4MeyNQC1L9eVxW0nyrQ=
 github.com/andybalholm/brotli v1.0.4 h1:V7DdXeJtZscaqfNuAdSRuRFzuiKlHSC/Zh3zl9qY3JY=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

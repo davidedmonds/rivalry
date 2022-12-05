@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	omstreamv1alpha1 "github.com/amg84/om-stream/cmd/operator/api/v1alpha1"
-	"github.com/amg84/om-stream/cmd/operator/controllers"
+	omstreamv1alpha1 "github.com/rivalry-matchmaker/rivalry/cmd/operator/api/v1alpha1"
+	"github.com/rivalry-matchmaker/rivalry/cmd/operator/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -71,7 +71,7 @@ func main() {
 		Port:                   9443,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "4fd647fb.om-stream",
+		LeaderElectionID:       "4fd647fb.rivalry",
 		// LeaderElectionReleaseOnCancel defines if the leader should step down voluntarily
 		// when the Manager ends. This requires the binary to immediately end when the
 		// Manager is stopped, otherwise, this setting is unsafe. Setting this significantly

@@ -1,7 +1,7 @@
 package filter
 
 import (
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

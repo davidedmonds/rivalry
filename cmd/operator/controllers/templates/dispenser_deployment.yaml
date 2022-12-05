@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: om-stream-dispenser
+  name: rivalry-dispenser
   labels:
-    app: om-stream-dispenser
+    app: rivalry-dispenser
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: om-stream-dispenser
+      app: rivalry-dispenser
   template:
     metadata:
       labels:
-        app: om-stream-dispenser
+        app: rivalry-dispenser
     spec:
       containers:
-        - name: om-stream-dispenser
+        - name: rivalry-dispenser
           image: dispenser:latest
           imagePullPolicy: IfNotPresent

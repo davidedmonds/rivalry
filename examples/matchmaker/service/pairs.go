@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"github.com/rs/zerolog/log"
 )
 

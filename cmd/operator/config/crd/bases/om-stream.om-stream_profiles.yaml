@@ -5,9 +5,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.9.2
   creationTimestamp: null
-  name: profiles.om-stream.om-stream
+  name: profiles.rivalry.rivalry
 spec:
-  group: om-stream.om-stream
+  group: rivalry.rivalry
   names:
     kind: Profile
     listKind: ProfileList

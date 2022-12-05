@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/amg84/om-stream/internal/db/pubsub"
+	"github.com/rivalry-matchmaker/rivalry/internal/db/pubsub"
 	"github.com/nats-io/nats-server/v2/server"
 	"github.com/nats-io/nats.go"
 	"github.com/stretchr/testify/assert"

@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"github.com/nats-io/nats-server/v2/server"
 	"github.com/nats-io/nats.go"
 	"github.com/rs/zerolog/log"

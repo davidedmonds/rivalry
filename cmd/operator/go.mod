@@ -1,9 +1,9 @@
-module github.com/amg84/om-stream/cmd/operator
+module github.com/rivalry-matchmaker/rivalry/cmd/operator
 
 go 1.18
 
 require (
-	github.com/amg84/om-stream v0.0.0-20221105134654-49814a3a66e2
+	github.com/rivalry-matchmaker/rivalry v0.0.0-20221105134654-49814a3a66e2
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.18.1
 	github.com/rs/zerolog v1.28.0

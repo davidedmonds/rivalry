@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

@@ -3,11 +3,11 @@ package backend
 import (
 	"context"
 
-	"github.com/amg84/om-stream/internal/backoff"
-	"github.com/amg84/om-stream/internal/managers/customlogic"
-	"github.com/amg84/om-stream/internal/managers/matches"
-	"github.com/amg84/om-stream/internal/managers/tickets"
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/internal/backoff"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/customlogic"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/matches"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/tickets"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"github.com/rs/zerolog/log"
 )
 

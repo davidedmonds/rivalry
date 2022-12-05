@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: om-stream-accumulator
+  name: rivalry-accumulator
   labels:
-    app: om-stream-accumulator
+    app: rivalry-accumulator
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: om-stream-accumulator
+      app: rivalry-accumulator
   template:
     metadata:
       labels:
-        app: om-stream-accumulator
+        app: rivalry-accumulator
     spec:
       containers:
-        - name: om-stream-accumulator
+        - name: rivalry-accumulator
           image: accumulator:latest
           imagePullPolicy: IfNotPresent

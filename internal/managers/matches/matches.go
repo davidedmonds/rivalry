@@ -5,11 +5,11 @@ package matches
 import (
 	"context"
 
-	"github.com/amg84/om-stream/internal/backoff"
-	"github.com/amg84/om-stream/internal/db/kv"
-	"github.com/amg84/om-stream/internal/db/stream"
-	"github.com/amg84/om-stream/internal/managers/tickets"
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/internal/backoff"
+	"github.com/rivalry-matchmaker/rivalry/internal/db/kv"
+	"github.com/rivalry-matchmaker/rivalry/internal/db/stream"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/tickets"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"github.com/golang/protobuf/proto"
 	"github.com/rs/xid"
 	"github.com/rs/zerolog/log"

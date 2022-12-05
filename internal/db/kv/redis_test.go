@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/alicebob/miniredis/v2"
-	"github.com/amg84/om-stream/internal/db/kv"
+	"github.com/rivalry-matchmaker/rivalry/internal/db/kv"
 	"github.com/deckarep/golang-set"
 	"github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/assert"
