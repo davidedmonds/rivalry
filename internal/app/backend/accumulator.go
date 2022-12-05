@@ -5,12 +5,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/amg84/om-stream/internal/managers/backfill"
-	"github.com/amg84/om-stream/internal/managers/customlogic"
-	"github.com/amg84/om-stream/internal/managers/filter"
-	"github.com/amg84/om-stream/internal/managers/matches"
-	"github.com/amg84/om-stream/internal/managers/tickets"
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/backfill"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/customlogic"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/filter"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/matches"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/tickets"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	mapset "github.com/deckarep/golang-set"
 	"github.com/rs/zerolog/log"
 )

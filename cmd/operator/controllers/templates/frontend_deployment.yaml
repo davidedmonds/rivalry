@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: om-stream-frontend
+  name: rivalry-frontend
   labels:
-    app: om-stream-frontend
+    app: rivalry-frontend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: om-stream-frontend
+      app: rivalry-frontend
   template:
     metadata:
       labels:
-        app: om-stream-frontend
+        app: rivalry-frontend
     spec:
       containers:
-        - name: om-stream-frontend
+        - name: rivalry-frontend
           image: frontend:latest
           imagePullPolicy: IfNotPresent
           ports:

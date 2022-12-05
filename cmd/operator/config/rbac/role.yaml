@@ -45,7 +45,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - om-stream.om-stream
+  - rivalry.rivalry
   resources:
   - profiles
   verbs:
@@ -57,13 +57,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - om-stream.om-stream
+  - rivalry.rivalry
   resources:
   - profiles/finalizers
   verbs:
   - update
 - apiGroups:
-  - om-stream.om-stream
+  - rivalry.rivalry
   resources:
   - profiles/status
   verbs:

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/amg84/om-stream/cmd/accumulator/cmd"
+import "github.com/rivalry-matchmaker/rivalry/cmd/accumulator/cmd"
 
 func main() {
 	cmd.Execute()

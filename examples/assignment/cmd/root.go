@@ -7,8 +7,8 @@ import (
 	"os"
 	"sync"
 
-	"github.com/amg84/om-stream/examples/assignment/service"
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/examples/assignment/service"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"

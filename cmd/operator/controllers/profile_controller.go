@@ -21,8 +21,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/amg84/om-stream/cmd/operator/controllers/templates"
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/cmd/operator/controllers/templates"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	zerolog "github.com/rs/zerolog/log"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -33,15 +33,15 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/yaml"
 
-	omstreamv1alpha1 "github.com/amg84/om-stream/cmd/operator/api/v1alpha1"
+	omstreamv1alpha1 "github.com/rivalry-matchmaker/rivalry/cmd/operator/api/v1alpha1"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 )
 
 const (
-	FrontendName    = "om-stream-frontend"
-	AccumulatorName = "om-stream-accumulator"
-	DispenserName   = "om-stream-dispenser"
+	FrontendName    = "rivalry-frontend"
+	AccumulatorName = "rivalry-accumulator"
+	DispenserName   = "rivalry-dispenser"
 )
 
 // ProfileReconciler reconciles a Profile object
@@ -51,9 +51,9 @@ type ProfileReconciler struct {
 	profiles string
 }
 
-//+kubebuilder:rbac:groups=om-stream.om-stream,resources=profiles,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=om-stream.om-stream,resources=profiles/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=om-stream.om-stream,resources=profiles/finalizers,verbs=update
+//+kubebuilder:rbac:groups=rivalry.rivalry,resources=profiles,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=rivalry.rivalry,resources=profiles/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=rivalry.rivalry,resources=profiles/finalizers,verbs=update
 //+kubebuilder:rbac:groups=core,resources=events,verbs=create;patch
 //+kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=core,resources=services,verbs=get;list;watch;create;update;patch;delete

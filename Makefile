@@ -86,7 +86,7 @@ pkg/pb/%.pb.gw.go: api/%.proto build/toolchain/bin/protoc$(EXE_EXTENSION) third_
 		-I $(REPOSITORY_ROOT) \
 		-I $(PROTOC_INCLUDES) \
 		--grpc-gateway_out=logtostderr=true:$(REPOSITORY_ROOT)/build/prototmp
-	mv $(REPOSITORY_ROOT)/build/prototmp/github.com/amg84/om-stream/$@ $@
+	mv $(REPOSITORY_ROOT)/build/prototmp/github.com/rivalry-matchmaker/rivalry/$@ $@
 
 # build grpc boilerplate
 pkg/pb/%.pb.go: api/%.proto build/toolchain/bin/protoc$(EXE_EXTENSION) third_party
@@ -94,7 +94,7 @@ pkg/pb/%.pb.go: api/%.proto build/toolchain/bin/protoc$(EXE_EXTENSION) third_par
 	PATH=$(TOOLCHAIN_BIN) $(PROTOC) $< \
 		-I $(REPOSITORY_ROOT) -I $(PROTOC_INCLUDES) \
 		--go_out=plugins=grpc:$(REPOSITORY_ROOT)/build/prototmp
-	mv $(REPOSITORY_ROOT)/build/prototmp/github.com/amg84/om-stream/$@ $@
+	mv $(REPOSITORY_ROOT)/build/prototmp/github.com/rivalry-matchmaker/rivalry/$@ $@
 
 third_party: third_party/google/api third_party/protoc-gen-openapiv2/options
 
@@ -146,27 +146,27 @@ coverage: go-test
 	$(GO) tool cover -html=$(BUILD_DIR)/coverage/coverage.out
 
 build-frontend:
-	docker build -f Dockerfile.cmd --build-arg=COMMAND=frontend -t $(REGISTRY)om-stream-frontend:$(TAG) .
+	docker build -f Dockerfile.cmd --build-arg=COMMAND=frontend -t $(REGISTRY)rivalry-frontend:$(TAG) .
 
 build-accumulator:
-	docker build -f Dockerfile.cmd --build-arg=COMMAND=accumulator -t $(REGISTRY)om-stream-accumulator:$(TAG) .
+	docker build -f Dockerfile.cmd --build-arg=COMMAND=accumulator -t $(REGISTRY)rivalry-accumulator:$(TAG) .
 
 build-dispenser:
-	docker build -f Dockerfile.cmd --build-arg=COMMAND=dispenser -t $(REGISTRY)om-stream-dispenser:$(TAG) .
+	docker build -f Dockerfile.cmd --build-arg=COMMAND=dispenser -t $(REGISTRY)rivalry-dispenser:$(TAG) .
 
 build-matchmaker:
 	docker build -f Dockerfile.cmd --build-arg=LOCATION=examples --build-arg=COMMAND=matchmaker \
-		-t $(REGISTRY)om-stream-matchmaker:$(TAG) .
+		-t $(REGISTRY)rivalry-matchmaker:$(TAG) .
 
 build-assignment:
 	docker build -f Dockerfile.cmd --build-arg=LOCATION=examples --build-arg=COMMAND=assignment \
-		-t $(REGISTRY)om-stream-assignment:$(TAG) .
+		-t $(REGISTRY)rivalry-assignment:$(TAG) .
 
 build: build-frontend build-accumulator build-dispenser build-matchmaker build-assignment
 
 build-k6: $(TOOLCHAIN_BIN)
 	go install go.k6.io/xk6/cmd/xk6@latest
-	xk6 build --with github.com/amg84/om-stream/xk6/xk6-frontend=$(REPOSITORY_ROOT)/xk6/xk6-frontend --output $(TOOLCHAIN_BIN)/k6
+	xk6 build --with github.com/rivalry-matchmaker/rivalry/xk6/xk6-frontend=$(REPOSITORY_ROOT)/xk6/xk6-frontend --output $(TOOLCHAIN_BIN)/k6
 
 run-k6: build-k6
 	$(TOOLCHAIN_BIN)/k6 run xk6/test.js

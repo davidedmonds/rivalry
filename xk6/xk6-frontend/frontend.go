@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"go.k6.io/k6/js/modules"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

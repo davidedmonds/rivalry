@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/amg84/om-stream/cmd/frontend-cli/cmd"
+import "github.com/rivalry-matchmaker/rivalry/cmd/frontend-cli/cmd"
 
 func main() {
 	cmd.Execute()

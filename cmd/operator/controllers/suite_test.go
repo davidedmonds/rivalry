@@ -31,7 +31,7 @@ import (
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	omstreamv1alpha1 "github.com/amg84/om-stream/cmd/operator/api/v1alpha1"
+	omstreamv1alpha1 "github.com/rivalry-matchmaker/rivalry/cmd/operator/api/v1alpha1"
 	//+kubebuilder:scaffold:imports
 )
 

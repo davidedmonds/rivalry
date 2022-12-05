@@ -3,8 +3,8 @@ package filter_test
 import (
 	"testing"
 
-	"github.com/amg84/om-stream/internal/managers/filter"
-	"github.com/amg84/om-stream/pkg/pb"
+	"github.com/rivalry-matchmaker/rivalry/internal/managers/filter"
+	"github.com/rivalry-matchmaker/rivalry/pkg/pb"
 	"github.com/rs/xid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"

@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: om-stream-frontend
+  name: rivalry-frontend
   labels:
-    app: om-stream-frontend
+    app: rivalry-frontend
 spec:
   selector:
-    app: om-stream-frontend
+    app: rivalry-frontend
   type: ClusterIP
   ports:
     - name: grpc

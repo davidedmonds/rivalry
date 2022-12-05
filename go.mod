@@ -1,4 +1,4 @@
-module github.com/amg84/om-stream
+module github.com/rivalry-matchmaker/rivalry
 
 go 1.19
 

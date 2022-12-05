@@ -1,4 +1,4 @@
-apiVersion: om-stream.om-stream/v1alpha1
+apiVersion: rivalry.rivalry/v1alpha1
 kind: Profile
 metadata:
   name: profile-example
@@ -6,11 +6,11 @@ spec:
   nats_address: nats://nats.default.svc.cluster.local:4222
   redis_address: redis-master.default.svc.cluster.local:6379
   frontend_service:
-    image: 192.168.64.134:5000/om-stream-frontend:latest
+    image: 192.168.64.134:5000/rivalry-frontend:latest
   accumulator_service:
-    image: 192.168.64.134:5000/om-stream-accumulator:latest
+    image: 192.168.64.134:5000/rivalry-accumulator:latest
   dispenser_service:
-    image: 192.168.64.134:5000/om-stream-dispenser:latest
+    image: 192.168.64.134:5000/rivalry-dispenser:latest
     assignment_target: assignment.default.svc.cluster.local:50051
   match_profiles:
   - name: 1v1
