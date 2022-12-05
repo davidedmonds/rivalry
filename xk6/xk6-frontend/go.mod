@@ -2,8 +2,10 @@ module github.com/rivalry-matchmaker/rivalry/xk6/xk6-frontend
 
 go 1.19
 
+replace github.com/rivalry-matchmaker/rivalry => ../../
+
 require (
-	github.com/rivalry-matchmaker/rivalry v0.0.0-20221105134654-49814a3a66e2
+	github.com/rivalry-matchmaker/rivalry v0.0.0
 	go.k6.io/k6 v0.41.0
 	google.golang.org/grpc v1.51.0
 )
@@ -20,13 +22,14 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/mstoykov/atlas v0.0.0-20220808085829-90340e9998bd // indirect
-	github.com/nxadm/tail v1.4.8 // indirect
+	github.com/onsi/ginkgo v1.16.5 // indirect
+	github.com/onsi/gomega v1.24.1 // indirect
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
 	github.com/serenize/snaker v0.0.0-20201027110005-a7ad2135616e // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spf13/afero v1.6.0 // indirect
-	golang.org/x/net v0.1.0 // indirect
-	golang.org/x/sys v0.1.0 // indirect
+	golang.org/x/net v0.2.0 // indirect
+	golang.org/x/sys v0.2.0 // indirect
 	golang.org/x/text v0.4.0 // indirect
 	golang.org/x/time v0.0.0-20220922220347-f3bd1da661af // indirect
 	google.golang.org/genproto v0.0.0-20221027153422-115e99e71e1c // indirect
